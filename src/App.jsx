@@ -1,8 +1,13 @@
 import React from 'react'
+import { Canvas } from '@react-three/fiber';
+
+import { Scene } from "./Components/Index"
 
 function App() {
   return (
-    <div>App</div>
+    <Canvas>
+      <Scene />
+    </Canvas>
   )
 }
 
