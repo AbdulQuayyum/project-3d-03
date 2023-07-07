@@ -4,7 +4,7 @@ import { EffectComposer, HueSaturation, ChromaticAberration, GodRays, DepthOfFie
 import { BlendFunction, Resizer, KernelSize } from "postprocessing";
 import { Color, CylinderGeometry, Mesh, MeshBasicMaterial } from "three";
 
-import { FloatingIsland, FloatingRocks, Grass, Particles, Rocks, Trees, Words } from "./Index"
+import { FloatingIsland, FloatingRocks, Grass, Particles, Portal, Rocks, Trees, Words } from "./Index"
 
 export default function Scene() {
     let lightColor = new Color(1, 0.2, 0.1);
@@ -45,7 +45,7 @@ export default function Scene() {
                     position={[1.19, 10.85, -4.45]}
                     target-position={[0, 0, -1]}
                 />
-
+                <Portal />
                 <FloatingIsland />
                 <Trees />
                 <Rocks />
@@ -55,6 +55,30 @@ export default function Scene() {
             </Float>
 
             <FloatingRocks />
+            <EffectComposer stencilBuffer={true}>
+                <DepthOfField
+                    focusDistance={0.012}
+                    focalLength={0.015}
+                    bokehScale={7}
+                />
+                <HueSaturation hue={0} saturation={-0.15} />
+                <BrightnessContrast brightness={0.0} contrast={0.035} />
+                <ChromaticAberration radialModulation={true} offset={[0.00175, 0.00175]} />
+                <GodRays
+                    sun={mesh}
+                    blendFunction={BlendFunction.Screen}
+                    samples={40}
+                    density={0.97}
+                    decay={0.97}
+                    weight={0.6}
+                    exposure={0.3}
+                    clampMax={1}
+                    width={Resizer.AUTO_SIZE}
+                    height={Resizer.AUTO_SIZE}
+                    kernelSize={KernelSize.SMALL}
+                    blur={true}
+                />
+            </EffectComposer>
         </Suspense>
     )
 }

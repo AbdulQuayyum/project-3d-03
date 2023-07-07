@@ -11,7 +11,7 @@ export default function FloatingIsland() {
         if (!gltf) return;
 
         let mesh = gltf.scene.children[0];
-        console.log(mesh);
+        // console.log(mesh);
 
         var uvs = mesh.geometry.attributes.uv.array;
         mesh.geometry.setAttribute('uv2', new BufferAttribute(uvs, 2));

@@ -11,7 +11,7 @@ export default function Words() {
             height={0.065}
             curveSegments={12}
           >
-            Soft
+            By Abdul-Quayyum...
             <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} />
           </Text3D>
         </Float>
@@ -23,7 +23,7 @@ export default function Words() {
             height={0.065}
             curveSegments={12}
           >
-            Portal
+            Soft Portal
             <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} />
           </Text3D>
         </Float>
