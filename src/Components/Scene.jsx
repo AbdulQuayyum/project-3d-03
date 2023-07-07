@@ -4,6 +4,8 @@ import { EffectComposer, HueSaturation, ChromaticAberration, GodRays, DepthOfFie
 import { BlendFunction, Resizer, KernelSize } from "postprocessing";
 import { Color, CylinderGeometry, Mesh, MeshBasicMaterial } from "three";
 
+import { FloatingIsland, FloatingRocks } from "./Index"
+
 export default function Scene() {
     return (
         <Suspense fallback={null}>
@@ -12,6 +14,8 @@ export default function Scene() {
 
             <PerspectiveCamera makeDefault fov={50} position={[-1.75, 10.85, 20.35]} />
             <OrbitControls target={[1, 5, 0]} maxPolarAngle={Math.PI * 0.5} />
+
+            <FloatingRocks />
         </Suspense>
     )
 }
